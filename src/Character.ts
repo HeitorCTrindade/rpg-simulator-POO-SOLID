@@ -96,8 +96,7 @@ export default class Character implements Fighter {
   levelUp(): void {
     this._dexterity += getRandomInt(1, 10);
     this._maxLifePoints += getRandomInt(1, 10);
-    this.checkMaxValueLifePoints();
-    console.log(this._maxLifePoints);    
+    this.checkMaxValueLifePoints();     
     this._lifePoints = this._maxLifePoints;
     this._strength += getRandomInt(1, 10);
     this._defense += getRandomInt(1, 10);
