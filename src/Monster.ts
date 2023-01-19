@@ -1,8 +1,4 @@
-import Archetype, { Mage } from './Archetypes';
-import Energy from './Energy';
 import { SimpleFighter } from './Fighter';
-import Race, { Elf } from './Races';
-import getRandomInt from './utils';
 
 export default class Monster implements SimpleFighter {
   private _lifePoints: number;
@@ -21,30 +17,18 @@ export default class Monster implements SimpleFighter {
     return this._strength;
   }
 
-  private checkDamage() {
-    if (this._lifePoints <= 0) {
+  receiveDamage(attackPoints: number): number {
+    const newLifePoints = this._lifePoints - attackPoints;
+    if (newLifePoints > 0) {
+      this._lifePoints = newLifePoints;
+    } else {
       this._lifePoints = -1;
     }
-  }
-
-  private checkMaxValueLifePoints() {
-    if (this._maxLifePoints > this.race.maxLifePoints) {
-      this._maxLifePoints = this.race.maxLifePoints;
-    }
-  }
-
-  receiveDamage(attackPoints: number): number {
-    const damage = attackPoints - this.defense;
-    if (damage > 0) {
-      this._lifePoints -= damage;
-    } else {
-      this._lifePoints -= 1;
-    }
-    this.checkDamage();
+    console.log(this._lifePoints);    
     return this._lifePoints;
   }
 
-  attack(enemy: Fighter): void {
+  attack(enemy: SimpleFighter): void {
     enemy.receiveDamage(this._strength);
   }  
 }
