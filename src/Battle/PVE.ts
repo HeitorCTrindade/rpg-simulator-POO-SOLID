@@ -1,7 +1,5 @@
 import Fighter, { SimpleFighter } from '../Fighter';
 import Battle from './Battle';
-import Character from '../../src/Character';
-import Monster from '../../src/Monster';
 
 export default class PVE extends Battle {
   private _enimies: SimpleFighter[];
