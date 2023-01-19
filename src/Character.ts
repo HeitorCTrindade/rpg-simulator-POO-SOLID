@@ -92,7 +92,7 @@ export default class Character implements Fighter {
   attack(enemy: SimpleFighter): void {
     enemy.receiveDamage(this._strength);
   }
-
+  
   levelUp(): void {
     this._dexterity += getRandomInt(1, 10);
     this._maxLifePoints += getRandomInt(1, 10);
@@ -103,7 +103,7 @@ export default class Character implements Fighter {
     this._energy.amount = 10;
   }  
 
-  special(enemy: Fighter): void {
+  special(enemy: SimpleFighter): void {
     enemy.receiveDamage(this._strength * getRandomInt(1, 3));
   }
 }

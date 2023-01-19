@@ -23,8 +23,7 @@ export default class Monster implements SimpleFighter {
       this._lifePoints = newLifePoints;
     } else {
       this._lifePoints = -1;
-    }
-    console.log(this._lifePoints);    
+    }       
     return this._lifePoints;
   }
 
